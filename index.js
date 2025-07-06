@@ -193,6 +193,25 @@ const entryContent = {
     initiated: false,
 }
 
+// Check if returning from profile page
+const returnFromProfile = localStorage.getItem('returnFromProfile');
+if (returnFromProfile === 'true') {
+    // Clear the flag
+    localStorage.removeItem('returnFromProfile');
+    
+    // Get return position
+    const returnPosition = JSON.parse(localStorage.getItem('returnPosition') || '{"x": 0, "y": 50}');
+    localStorage.removeItem('returnPosition');
+    
+    // Reposition player slightly down to avoid re-triggering entry
+    moveables.forEach((moveable) => {
+        moveable.position.y -= returnPosition.y;
+    });
+    
+    // Reset entry detection
+    entryContent.initiated = false;
+}
+
 function animate(){
     window.requestAnimationFrame(animate)
     background.draw()
@@ -241,9 +260,10 @@ function animate(){
                 rectangle2: e2
             }) && overlappingAre>(player.width*player.height)/4
         ){
-                console.log('entry2 detected')
-                entryContent.initiated = true
-                break
+                console.log('entry2 detected - navigating to profile')
+                // Navigate to profile page
+                window.location.href = 'profile.html';
+                return;
             }
         }
     }
