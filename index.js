@@ -100,7 +100,10 @@ enter3Map.forEach((row,i) =>{
     })
 })
 
-
+// Make entry arrays globally accessible for menu
+window.enter01 = enter01;
+window.enter02 = enter02;
+window.enter03 = enter03;
 
 const image = new Image()
 image.src = 'assets/Game Map.png'
@@ -314,7 +317,7 @@ function animate(){
     }
 
     if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed){
-        for (let i=0; i < enter01.length; i++){
+        for (let i=0; i < enter03.length; i++){
             const e3 = enter03[i]
             const overlappingAre =( Math.min(player.position.x + player.width, e3.position.x + e3.width) - Math.max(player.position.x, e3.position.x)) * (Math.min(player.position.y+ player.height, e3.position.y + e3.height) - Math.max(player.position.y, e3.position.y))
             // For entry 3 (contact)
@@ -465,3 +468,432 @@ window.addEventListener('keyup', (e) => {
             break
     }
 })
+
+window.moveWorldToEntry1 = function(callback) {
+    if (window._worldMoving) return;
+    window._worldMoving = true;
+
+    const targetX = -295;
+    const targetY = -876;
+    const step = 3;
+
+    // Helper to clear all key presses
+    function clearKeys() {
+        keys.w.pressed = false;
+        keys.a.pressed = false;
+        keys.s.pressed = false;
+        keys.d.pressed = false;
+    }
+
+    // Helper to check if moving in a direction would cause collision
+    function canMoveFromPos(pos, dir) {
+        let dx = 0, dy = 0;
+        if (dir === 'w') dy = step;
+        if (dir === 's') dy = -step;
+        if (dir === 'a') dx = step;
+        if (dir === 'd') dx = -step;
+        for (let i = 0; i < boundaries.length; i++) {
+            const boundary = boundaries[i];
+            // Simulate boundary at new position
+            if (rectangularCollision({
+                rectangle1: {
+                    position: {
+                        x: player.position.x,
+                        y: player.position.y
+                    },
+                    width: player.width,
+                    height: player.height
+                },
+                rectangle2: {
+                    ...boundary,
+                    position: {
+                        x: boundary.position.x + dx + (pos.x - background.position.x),
+                        y: boundary.position.y + dy + (pos.y - background.position.y)
+                    }
+                }
+            })) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // BFS to find path
+    function bfs(start, goal) {
+        const queue = [];
+        const visited = new Set();
+        const parent = {};
+        const dirs = ['w', 'a', 's', 'd'];
+        queue.push(start);
+        visited.add(`${start.x},${start.y}`);
+
+        while (queue.length > 0) {
+            const current = queue.shift();
+            if (Math.abs(current.x - goal.x) <= step && Math.abs(current.y - goal.y) <= step) {
+                // Reached goal
+                const path = [];
+                let node = `${current.x},${current.y}`;
+                while (parent[node]) {
+                    path.unshift(parent[node].dir);
+                    node = parent[node].from;
+                }
+                return path;
+            }
+            for (let dir of dirs) {
+                let dx = 0, dy = 0;
+                if (dir === 'w') dy = step;
+                if (dir === 's') dy = -step;
+                if (dir === 'a') dx = step;
+                if (dir === 'd') dx = -step;
+                const next = { x: current.x + dx, y: current.y + dy };
+                const key = `${next.x},${next.y}`;
+                if (!visited.has(key) && canMoveFromPos(current, dir)) {
+                    visited.add(key);
+                    parent[key] = { from: `${current.x},${current.y}`, dir };
+                    queue.push(next);
+                }
+            }
+        }
+        return null; // No path found
+    }
+
+    // Start BFS from current background position
+    const start = { x: background.position.x, y: background.position.y };
+    const goal = { x: targetX, y: targetY };
+    const path = bfs(start, goal);
+
+    if (!path || path.length === 0) {
+        window._worldMoving = false;
+        alert('No path found to entry!');
+        return;
+    }
+
+    // Simulate movement along the path
+    function moveAlongPath(index) {
+        if (index >= path.length) {
+            clearKeys();
+            localStorage.setItem('lastEntry', 'projects');
+            localStorage.setItem('worldReturnOffset', JSON.stringify({
+                background: { x: background.position.x, y: background.position.y }
+            }));
+            window._worldMoving = false;
+            window.location.href = 'projects.html';
+            if (callback) callback(true);
+            return;
+        }
+        clearKeys();
+        const dir = path[index];
+        keys[dir].pressed = true;
+        lastKey = dir;
+
+        let prevX = background.position.x;
+        let prevY = background.position.y;
+
+        function waitForStep() {
+            let actuallyMoved = false;
+            if (dir === 'w' && background.position.y > prevY) actuallyMoved = true;
+            if (dir === 's' && background.position.y < prevY) actuallyMoved = true;
+            if (dir === 'a' && background.position.x > prevX) actuallyMoved = true;
+            if (dir === 'd' && background.position.x < prevX) actuallyMoved = true;
+
+            if (!keys[dir].pressed) {
+                moveAlongPath(index + 1);
+                return;
+            }
+            if (actuallyMoved) {
+                moveAlongPath(index + 1);
+            } else {
+                requestAnimationFrame(waitForStep);
+            }
+        }
+        requestAnimationFrame(waitForStep);
+    }
+
+    moveAlongPath(0);
+};
+
+window.moveWorldToEntry2 = function(callback) {
+    if (window._worldMoving) return;
+    window._worldMoving = true;
+
+    const targetX = -589;
+    const targetY = -431;
+    const step = 3;
+
+    // Helper to clear all key presses
+    function clearKeys() {
+        keys.w.pressed = false;
+        keys.a.pressed = false;
+        keys.s.pressed = false;
+        keys.d.pressed = false;
+    }
+
+    // Helper to check if moving in a direction would cause collision
+    function canMoveFromPos(pos, dir) {
+        let dx = 0, dy = 0;
+        if (dir === 'w') dy = step;
+        if (dir === 's') dy = -step;
+        if (dir === 'a') dx = step;
+        if (dir === 'd') dx = -step;
+        for (let i = 0; i < boundaries.length; i++) {
+            const boundary = boundaries[i];
+            // Simulate boundary at new position
+            if (rectangularCollision({
+                rectangle1: {
+                    position: {
+                        x: player.position.x,
+                        y: player.position.y
+                    },
+                    width: player.width,
+                    height: player.height
+                },
+                rectangle2: {
+                    ...boundary,
+                    position: {
+                        x: boundary.position.x + dx + (pos.x - background.position.x),
+                        y: boundary.position.y + dy + (pos.y - background.position.y)
+                    }
+                }
+            })) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // BFS to find path
+    function bfs(start, goal) {
+        const queue = [];
+        const visited = new Set();
+        const parent = {};
+        const dirs = ['w', 'a', 's', 'd'];
+        queue.push(start);
+        visited.add(`${start.x},${start.y}`);
+
+        while (queue.length > 0) {
+            const current = queue.shift();
+            if (Math.abs(current.x - goal.x) <= step && Math.abs(current.y - goal.y) <= step) {
+                // Reached goal
+                const path = [];
+                let node = `${current.x},${current.y}`;
+                while (parent[node]) {
+                    path.unshift(parent[node].dir);
+                    node = parent[node].from;
+                }
+                return path;
+            }
+            for (let dir of dirs) {
+                let dx = 0, dy = 0;
+                if (dir === 'w') dy = step;
+                if (dir === 's') dy = -step;
+                if (dir === 'a') dx = step;
+                if (dir === 'd') dx = -step;
+                const next = { x: current.x + dx, y: current.y + dy };
+                const key = `${next.x},${next.y}`;
+                if (!visited.has(key) && canMoveFromPos(current, dir)) {
+                    visited.add(key);
+                    parent[key] = { from: `${current.x},${current.y}`, dir };
+                    queue.push(next);
+                }
+            }
+        }
+        return null; // No path found
+    }
+
+    // Start BFS from current background position
+    const start = { x: background.position.x, y: background.position.y };
+    const goal = { x: targetX, y: targetY };
+    const path = bfs(start, goal);
+
+    if (!path || path.length === 0) {
+        window._worldMoving = false;
+        alert('No path found to entry!');
+        return;
+    }
+
+    // Simulate movement along the path
+    function moveAlongPath(index) {
+        if (index >= path.length) {
+            clearKeys();
+            localStorage.setItem('lastEntry', 'profile');
+            localStorage.setItem('worldReturnOffset', JSON.stringify({
+                background: { x: background.position.x, y: background.position.y }
+            }));
+            window._worldMoving = false;
+            window.location.href = 'profile.html';
+            if (callback) callback(true);
+            return;
+        }
+        clearKeys();
+        const dir = path[index];
+        keys[dir].pressed = true;
+        lastKey = dir;
+
+        let prevX = background.position.x;
+        let prevY = background.position.y;
+
+        function waitForStep() {
+            let actuallyMoved = false;
+            if (dir === 'w' && background.position.y > prevY) actuallyMoved = true;
+            if (dir === 's' && background.position.y < prevY) actuallyMoved = true;
+            if (dir === 'a' && background.position.x > prevX) actuallyMoved = true;
+            if (dir === 'd' && background.position.x < prevX) actuallyMoved = true;
+
+            if (!keys[dir].pressed) {
+                moveAlongPath(index + 1);
+                return;
+            }
+            if (actuallyMoved) {
+                moveAlongPath(index + 1);
+            } else {
+                requestAnimationFrame(waitForStep);
+            }
+        }
+        requestAnimationFrame(waitForStep);
+    }
+
+    moveAlongPath(0);
+};
+
+window.moveWorldToEntry3 = function(callback) {
+    if (window._worldMoving) return;
+    window._worldMoving = true;
+
+    const targetX = -1411;
+    const targetY = -520;
+    const step = 3;
+
+    // Helper to clear all key presses
+    function clearKeys() {
+        keys.w.pressed = false;
+        keys.a.pressed = false;
+        keys.s.pressed = false;
+        keys.d.pressed = false;
+    }
+
+    // Helper to check if moving in a direction would cause collision
+    function canMoveFromPos(pos, dir) {
+        let dx = 0, dy = 0;
+        if (dir === 'w') dy = step;
+        if (dir === 's') dy = -step;
+        if (dir === 'a') dx = step;
+        if (dir === 'd') dx = -step;
+        for (let i = 0; i < boundaries.length; i++) {
+            const boundary = boundaries[i];
+            // Simulate boundary at new position
+            if (rectangularCollision({
+                rectangle1: {
+                    position: {
+                        x: player.position.x,
+                        y: player.position.y
+                    },
+                    width: player.width,
+                    height: player.height
+                },
+                rectangle2: {
+                    ...boundary,
+                    position: {
+                        x: boundary.position.x + dx + (pos.x - background.position.x),
+                        y: boundary.position.y + dy + (pos.y - background.position.y)
+                    }
+                }
+            })) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // BFS to find path
+    function bfs(start, goal) {
+        const queue = [];
+        const visited = new Set();
+        const parent = {};
+        const dirs = ['w', 'a', 's', 'd'];
+        queue.push(start);
+        visited.add(`${start.x},${start.y}`);
+
+        while (queue.length > 0) {
+            const current = queue.shift();
+            if (Math.abs(current.x - goal.x) <= step && Math.abs(current.y - goal.y) <= step) {
+                // Reached goal
+                const path = [];
+                let node = `${current.x},${current.y}`;
+                while (parent[node]) {
+                    path.unshift(parent[node].dir);
+                    node = parent[node].from;
+                }
+                return path;
+            }
+            for (let dir of dirs) {
+                let dx = 0, dy = 0;
+                if (dir === 'w') dy = step;
+                if (dir === 's') dy = -step;
+                if (dir === 'a') dx = step;
+                if (dir === 'd') dx = -step;
+                const next = { x: current.x + dx, y: current.y + dy };
+                const key = `${next.x},${next.y}`;
+                if (!visited.has(key) && canMoveFromPos(current, dir)) {
+                    visited.add(key);
+                    parent[key] = { from: `${current.x},${current.y}`, dir };
+                    queue.push(next);
+                }
+            }
+        }
+        return null; // No path found
+    }
+
+    // Start BFS from current background position
+    const start = { x: background.position.x, y: background.position.y };
+    const goal = { x: targetX, y: targetY };
+    const path = bfs(start, goal);
+
+    if (!path || path.length === 0) {
+        window._worldMoving = false;
+        alert('No path found to entry!');
+        return;
+    }
+
+    // Simulate movement along the path
+    function moveAlongPath(index) {
+        if (index >= path.length) {
+            clearKeys();
+            localStorage.setItem('lastEntry', 'contact');
+            localStorage.setItem('worldReturnOffset', JSON.stringify({
+                background: { x: background.position.x, y: background.position.y }
+            }));
+            window._worldMoving = false;
+            window.location.href = 'contact.html';
+            if (callback) callback(true);
+            return;
+        }
+        clearKeys();
+        const dir = path[index];
+        keys[dir].pressed = true;
+        lastKey = dir;
+
+        let prevX = background.position.x;
+        let prevY = background.position.y;
+
+        function waitForStep() {
+            let actuallyMoved = false;
+            if (dir === 'w' && background.position.y > prevY) actuallyMoved = true;
+            if (dir === 's' && background.position.y < prevY) actuallyMoved = true;
+            if (dir === 'a' && background.position.x > prevX) actuallyMoved = true;
+            if (dir === 'd' && background.position.x < prevX) actuallyMoved = true;
+
+            if (!keys[dir].pressed) {
+                moveAlongPath(index + 1);
+                return;
+            }
+            if (actuallyMoved) {
+                moveAlongPath(index + 1);
+            } else {
+                requestAnimationFrame(waitForStep);
+            }
+        }
+        requestAnimationFrame(waitForStep);
+    }
+
+    moveAlongPath(0);
+};

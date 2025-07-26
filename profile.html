@@ -5,69 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Portfolio</title>
     <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="page-title">PORTFOLIO - SHAURYA SAINI</h1>
-    
-    <div class="glass-overlay"></div>
-    
-    <div class="profile-container">
+    <h1 class="page-title">PROFILE</h1>
+    <div class="profile-main-container">
+        <div class="back-btn-container">
+            <button class="back-btn" onclick="returnToMap()" onmouseover="showTooltip()" onmouseout="hideTooltip()">
+                <img src="assets/back_button.png" alt="Back to Map" />
+            </button>
+            <div class="back-btn-tooltip" id="backBtnTooltip">Return Back To Map</div>
+        </div>
         <div class="profile-card">
-            <button class="back-button" onclick="returnToMap()">← Back</button>
-            
-            <div class="profile-header">
-                <h1 class="profile-name">John Doe</h1>
-                <p class="profile-title">Full Stack Developer & Game Enthusiast</p>
-            </div>
-            
-            <div class="profile-description">
-                Passionate developer with a love for creating interactive experiences. 
-                I specialize in web development, game development, and creating engaging 
-                user interfaces. When I'm not coding, you can find me exploring new 
-                technologies or working on personal projects that push the boundaries 
-                of what's possible on the web.
-            </div>
-            
-            <div class="profile-details">
-                <div class="detail-item">
-                    <span class="detail-label">Experience:</span>
-                    <span class="detail-value">3+ years in web development</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Location:</span>
-                    <span class="detail-value">San Francisco, CA</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Education:</span>
-                    <span class="detail-value">B.S. Computer Science</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Interests:</span>
-                    <span class="detail-value">Game Development, Web Technologies, AI/ML</span>
+            <div class="profile-card-left">
+                <div class="profile-name">SHAURYA SAINI</div>
+                <div class="profile-title">AI-ML Engineer</div>
+                <div class="profile-description">
+                    I am an AI/ML engineer and developer passionate about building intelligent, interactive, and visually engaging digital experiences.<br><br>
+                    My expertise spans artificial intelligence, machine learning, web development, and creative coding. I enjoy solving complex problems, experimenting with new technologies, and bringing ideas to life through code.<br><br>
+                    Whether it's developing smart applications, crafting pixel-perfect interfaces, or exploring the latest in AI, I thrive on challenges that push the boundaries of what's possible.
                 </div>
             </div>
-            
-            <div class="skills-section">
-                <h3 class="skills-title">Technical Skills</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Game Development</span>
-                    <span class="skill-tag">Canvas API</span>
-                </div>
+            <div class="profile-card-right">
+                <img src="assets/photo.png" alt="Shaurya Saini" class="profile-photo" />
+                <!-- Adjust "assets/photo.png" to align with "assets/back.jpg" for seamless overlay -->
             </div>
         </div>
     </div>
-
     <script>
         function returnToMap() {
             localStorage.setItem('returnFromProfile', 'true');
-            // No offset for entry 2!
             window.location.href = 'index.html';
+        }
+        function showTooltip() {
+            document.getElementById('backBtnTooltip').style.display = 'block';
+        }
+        function hideTooltip() {
+            document.getElementById('backBtnTooltip').style.display = 'none';
         }
     </script>
 </body>

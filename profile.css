@@ -1,217 +1,268 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    height: 100vh;
-    background: url('assets/map.png') no-repeat center bottom;
-    background-size: contain;
-    background-color: #000000;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.page-title {
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 2px;
-    z-index: 10;
-    position: relative;
-}
-
-.glass-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.profile-container {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.profile-card {
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    max-width: 600px;
-    width: 100%;
-    position: relative;
-    max-height: 80vh;
-    overflow-y: auto;
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.profile-card::-webkit-scrollbar {
-    display: none;
-}
-
-.back-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    z-index: 3;
-}
-
-.back-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-}
-
-.back-button:active {
-    transform: translateY(0);
-}
-
-.profile-header {
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
-
-.profile-name {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.profile-title {
-    font-size: 1.3rem;
-    color: #667eea;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.profile-description {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
-    text-align: justify;
-    margin-bottom: 30px;
-}
-
-.profile-details {
-    background: rgba(102, 126, 234, 0.1);
-    border-radius: 15px;
-    padding: 25px;
-    margin-top: 20px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.detail-label {
-    font-weight: bold;
-    color: #333;
-    min-width: 120px;
-    margin-right: 15px;
-}
-
-.detail-value {
-    color: #666;
-    flex: 1;
-}
-
-.skills-section {
-    margin-top: 25px;
-}
-
-.skills-title {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill-tag {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .page-title {
-        font-size: 1.8rem;
-        margin: 15px 0;
-    }
-    
-    .profile-container {
-        padding: 10px;
-    }
-    
-    .profile-card {
-        padding: 30px 20px;
-        max-height: 75vh;
-    }
-    
-    .profile-name {
-        font-size: 2rem;
-    }
-    
-    .profile-title {
-        font-size: 1.1rem;
-    }
-    
-    .detail-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .detail-label {
-        min-width: auto;
-        margin-right: 0;
-        margin-bottom: 5px;
-    }
-} 
+            background: url('assets/back.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .page-title {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10; /* Above glass overlay */
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            font-size: 3rem;
+            color: #512F13;
+            text-align: center;
+            margin: 0;
+            letter-spacing: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid rgb(0, 0, 0);
+            width: 0;
+            animation: typing 2.5s steps(30, end) forwards, blink-caret .75s step-end infinite;
+            background: none;
+            pointer-events: none;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #512F13; }
+        }
+        .profile-main-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 120px;    /* Add space for page title */
+            /* margin-left: 20px;    Shift left by 20px */
+            margin-right: 95px;    /* Shift left by 20px */
+        }
+        .back-btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-right: 55px;
+            margin-top: 30px;
+        }
+        .back-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            width: 64px;
+            height: 64px;
+            padding: 0;
+        }
+        .back-btn img {
+            width: 105px;
+            height: 95px;
+            border-radius: 50%;
+            border: none; /* Remove border */
+            background: none; /* Remove background */
+            box-shadow: none; /* Remove shadow */
+            transform: rotate(180deg); /* Rotate image */
+            transition: box-shadow 0.2s;
+        }
+        /* Remove hover effect shadow */
+        .back-btn:hover img {
+            box-shadow: none;
+        }
+        .back-btn-tooltip {
+            display: none;
+            position: absolute;
+            left: 50px; /* Reduced gap from button */
+            top: 38%;
+            /* padding-bottom: 50px; */
+            transform: translateY(-50%);
+            background: #402108;
+            color: #F2B87A;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .back-btn:hover + .back-btn-tooltip {
+            display: block;
+        }
+        .profile-card {
+            background: url('assets/back.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 18px;
+            padding: 0;
+            box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.35);
+            /* border: 10px solid #512F13; */ /* Remove border */
+            max-width: 1024px;
+            width: 1024px;
+            min-width: 320px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            /* Remove glass effect from card */
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        /* Left: scrollable details */
+        .profile-card-left {
+            flex: 2;
+            overflow-y: auto;
+            padding: 40px 32px 32px 40px;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            max-height: 500px; /* Adjust as needed */
+            direction: rtl; /* Flip content direction for scrollbar */
+        }
+        .profile-card-left > * {
+            direction: ltr; /* Restore normal direction for content */
+        }
+        /* Custom scrollbar on the left */
+        .profile-card-left::-webkit-scrollbar {
+            width: 10px;
+            background: transparent;
+        }
+        .profile-card-left::-webkit-scrollbar-thumb {
+            background: #512F13;
+            border-radius: 8px;
+        }
+        .profile-card-left {
+            scrollbar-color: #512F13 transparent;
+            scrollbar-width: thin;
+        }
+        .profile-card-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 260px;
+            max-width: 320px;
+            background: transparent;
+            /* No scroll */
+            overflow: hidden;
+            position: relative;
+        }
+        .profile-header-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            gap: 32px;
+        }
+        .profile-header-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1;
+        }
+        .profile-name {
+            font-size: 2.2rem;
+            color: #512F13;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .profile-title {
+            font-size: 1.1rem;
+            color: #F2B87A;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 35px;
+        }
+        .profile-header-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+        }
+        .profile-photo {
+            width: 265px;
+            height: 265px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: none; /* Remove background */
+            border: none;     /* Remove border */
+            box-shadow: none; /* Remove shadow */
+            padding-top: 150px;
+            /* You may adjust width/height for perfect alignment */
+        }
+        .profile-description {
+            font-size: 1.1rem;
+            color: #402108;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 24px 18px;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            line-height: 1.7;
+            text-align: justify;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 1100px) {
+            .profile-card {
+                max-width: 98vw;
+                width: 98vw;
+                flex-direction: column;
+            }
+            .profile-card-left, .profile-card-right {
+                max-width: 100%;
+                min-width: 0;
+                padding: 20px 5vw;
+            }
+            .profile-card-right {
+                justify-content: flex-start;
+                min-height: 120px;
+            }
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        @media (max-width: 600px) {
+            .profile-card {
+                padding: 0;
+            }
+            .profile-card-left, .profile-card-right {
+                padding: 10px 2vw;
+            }
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        /* 4. Prevent page scrolling, only allow scroll in .profile-card-left */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+            /* ...existing code... */
+        }

@@ -22,7 +22,7 @@
             </button>
             <div class="dropdown" id="dropdownMenu">
                 <a href="index.html">Home</a>
-                <a href="projects.html" class="menu-link" data-target="projects">Projects</a>
+                <a href="#" class="menu-link" data-target="projects">Projects</a>
                 <a href="profile.html" class="menu-link" data-target="profile">Profile</a>
                 <a href="contact.html" class="menu-link" data-target="contact">Contact</a>
             </div>
@@ -111,10 +111,18 @@
                 e.preventDefault();
                 dropdownMenu.style.display = 'none';
                 menuOpen = false;
-                if (typeof window.movePlayerToEntry !== 'function') {
-                    console.error('movePlayerToEntry is not defined');
+                if (targetKey === 'projects') {
+                    window.moveWorldToEntry1(() => {});
+                    return;
                 }
-                window.movePlayerToEntry(entryArray, () => {});
+                if (targetKey === 'profile') {
+                    window.moveWorldToEntry2(() => {});
+                    return;
+                }
+                if (targetKey === 'contact') {
+                    window.moveWorldToEntry3(() => {});
+                    return;
+                }
             } else {
                 console.warn('No valid entry array for', targetKey, entryArray);
             }
