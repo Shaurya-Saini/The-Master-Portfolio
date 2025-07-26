@@ -66,14 +66,9 @@
     <script>
         function returnToMap() {
             localStorage.setItem('returnFromProfile', 'true');
-            localStorage.setItem('returnPosition', JSON.stringify({
-                x: 0,
-                y: 20 
-            }));
-            
-            // Navigate back to the game
+            // No offset for entry 2!
             window.location.href = 'index.html';
         }
     </script>
 </body>
-</html> 
+</html>

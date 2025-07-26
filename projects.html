@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <h1 class="page-title">PORTFOLIO - SHAURYA SAINI</h1>
+    
+    <div class="glass-overlay"></div>
+    
+    <div class="projects-container">
+        <div class="projects-card">
+            <button class="back-button" onclick="returnToMap()">← Back</button>
+            
+            <div class="projects-header">
+                <h1 class="projects-name">My Projects</h1>
+                <p class="projects-title">Showcasing My Development Journey</p>
+            </div>
+            
+            <div class="projects-description">
+                Here are some of the projects I've worked on, demonstrating my skills in web development, 
+                game development, and creative problem-solving. Each project represents a unique challenge 
+                and learning experience.
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">Interactive Portfolio Game</h3>
+                        <span class="project-type">Web Game</span>
+                    </div>
+                    <p class="project-description">
+                        A unique portfolio presentation using HTML5 Canvas and JavaScript. 
+                        Features pixel art graphics, collision detection, and interactive elements.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Canvas API</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <span class="project-type">Full Stack</span>
+                    </div>
+                    <p class="project-description">
+                        A complete e-commerce solution with user authentication, product management, 
+                        shopping cart functionality, and payment integration.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">Task Management App</h3>
+                        <span class="project-type">Web App</span>
+                    </div>
+                    <p class="project-description">
+                        A productivity application with drag-and-drop functionality, real-time updates, 
+                        and collaborative features for team project management.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Vuex</span>
+                        <span class="tech-tag">Vuetify</span>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <span class="project-type">API Integration</span>
+                    </div>
+                    <p class="project-description">
+                        A weather application that displays current conditions and forecasts using 
+                        multiple weather APIs with location-based services.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Weather API</span>
+                        <span class="tech-tag">Geolocation</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="github-section">
+                <h3 class="github-title">View More Projects</h3>
+                <a href="https://github.com/yourusername" class="github-link" target="_blank">
+                    <span class="github-icon">📁</span>
+                    GitHub Profile
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function returnToMap() {
+            localStorage.setItem('returnFromProjects', 'true');
+            // localStorage.setItem('returnPosition', JSON.stringify({
+            //     x: 0,
+            //     y: 20 // Offset for entry 1
+            // }));
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

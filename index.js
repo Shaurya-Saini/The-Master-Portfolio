@@ -28,7 +28,7 @@ for (let i=0; i<enter2.length; i+=70){
 const enter3Map= []
 for (let i=0; i<enter3.length; i+=70){
     enter3Map.push(enter3.slice(i,70+i))
-    console.log(i)
+    // console.log(i)
 }
 
 const offset = {
@@ -193,23 +193,67 @@ const entryContent = {
     initiated: false,
 }
 
-// Check if returning from profile page
+// Check if returning from profile, projects, or contact page
 const returnFromProfile = localStorage.getItem('returnFromProfile');
-if (returnFromProfile === 'true') {
-    // Clear the flag
-    localStorage.removeItem('returnFromProfile');
-    
-    // Get return position
-    const returnPosition = JSON.parse(localStorage.getItem('returnPosition') || '{"x": 0, "y": 50}');
-    localStorage.removeItem('returnPosition');
-    
-    // Reposition player slightly down to avoid re-triggering entry
-    moveables.forEach((moveable) => {
-        moveable.position.y -= returnPosition.y;
+const returnFromProjects = localStorage.getItem('returnFromProjects');
+const returnFromContact = localStorage.getItem('returnFromContact');
+
+// Only offset for entry 1 (projects) and 3 (contact)
+// if (returnFromProjects === 'true' || returnFromContact === 'true') {
+//     // Get return position (default to 20 if not set)
+//     const returnPosition = JSON.parse(localStorage.getItem('returnPosition') || '{"x": 0, "y": 20}');
+//     moveables.forEach((moveable) => {
+//         moveable.position.y -= returnPosition.y;
+//     });
+//     localStorage.removeItem('returnPosition');
+// }
+
+// Clear all flags
+localStorage.removeItem('returnFromProfile');
+localStorage.removeItem('returnFromProjects');
+localStorage.removeItem('returnFromContact');
+
+const lastEntry = localStorage.getItem('lastEntry');
+const worldReturnOffset = JSON.parse(localStorage.getItem('worldReturnOffset') || 'null');
+
+if (worldReturnOffset && lastEntry) {
+    // Restore background and foreground positions
+    background.position.x = worldReturnOffset.background.x;
+    background.position.y = worldReturnOffset.background.y;
+    foreground.position.x = worldReturnOffset.background.x;
+    foreground.position.y = worldReturnOffset.background.y;
+
+    // Also update all moveables (boundaries, entries)
+    boundaries.forEach(b => {
+        b.position.x += (background.position.x - offset.x);
+        b.position.y += (background.position.y - offset.y);
     });
-    
-    // Reset entry detection
-    entryContent.initiated = false;
+    enter01.forEach(b => {
+        b.position.x += (background.position.x - offset.x);
+        b.position.y += (background.position.y - offset.y);
+    });
+    enter02.forEach(b => {
+        b.position.x += (background.position.x - offset.x);
+        b.position.y += (background.position.y - offset.y);
+    });
+    enter03.forEach(b => {
+        b.position.x += (background.position.x - offset.x);
+        b.position.y += (background.position.y - offset.y);
+    });
+
+    // For entry 1 and 3, move world up (so player appears below entry)
+    if (lastEntry === 'projects' || lastEntry === 'contact' || lastEntry === 'profile') {
+        background.position.y -= 30;
+        foreground.position.y -= 30;
+        boundaries.forEach(b => b.position.y -= 30);
+        enter01.forEach(b => b.position.y -= 30);
+        enter02.forEach(b => b.position.y -= 30);
+        enter03.forEach(b => b.position.y -= 30);
+    }
+
+    // Clean up
+    localStorage.removeItem('lastEntry');
+    localStorage.removeItem('worldReturnOffset');
 }
 
 function animate(){
@@ -232,6 +276,7 @@ function animate(){
     
     let moving = true
     player.moving = false
+    console.log(background.position.x, background.position.y)
     if (entryContent.initiated){
         return
     }
@@ -239,14 +284,15 @@ function animate(){
         for (let i=0; i < enter01.length; i++){
             const e1 = enter01[i]
             const overlappingAre =( Math.min(player.position.x + player.width, e1.position.x + e1.width) - Math.max(player.position.x, e1.position.x)) * (Math.min(player.position.y+ player.height, e1.position.y + e1.height) - Math.max(player.position.y, e1.position.y))
-            if (rectangularCollision({
-                rectangle1: player,
-                rectangle2: e1
-            }) && overlappingAre>(player.width*player.height)/4
-        ){
-                console.log('entry1 detected')
-                entryContent.initiated = true
-                break
+            // For entry 1 (projects)
+            if (rectangularCollision({ rectangle1: player, rectangle2: e1 }) && overlappingAre > (player.width * player.height) / 4) {
+                localStorage.setItem('lastEntry', 'projects');
+                localStorage.setItem('worldReturnOffset', JSON.stringify({
+                    background: { x: background.position.x, y: background.position.y }
+                }));
+                console.log(player.position.x, player.position.y)
+                window.location.href = 'projects.html';
+                return;
             }
         }
     }
@@ -255,13 +301,12 @@ function animate(){
         for (let i=0; i < enter02.length; i++){
             const e2 = enter02[i]
             const overlappingAre =( Math.min(player.position.x + player.width, e2.position.x + e2.width) - Math.max(player.position.x, e2.position.x)) * (Math.min(player.position.y+ player.height, e2.position.y + e2.height) - Math.max(player.position.y, e2.position.y))
-            if (rectangularCollision({
-                rectangle1: player,
-                rectangle2: e2
-            }) && overlappingAre>(player.width*player.height)/4
-        ){
-                console.log('entry2 detected - navigating to profile')
-                // Navigate to profile page
+            // For entry 2 (profile)
+            if (rectangularCollision({ rectangle1: player, rectangle2: e2 }) && overlappingAre > (player.width * player.height) / 4) {
+                localStorage.setItem('lastEntry', 'profile');
+                localStorage.setItem('worldReturnOffset', JSON.stringify({
+                    background: { x: background.position.x, y: background.position.y }
+                }));
                 window.location.href = 'profile.html';
                 return;
             }
@@ -272,14 +317,14 @@ function animate(){
         for (let i=0; i < enter01.length; i++){
             const e3 = enter03[i]
             const overlappingAre =( Math.min(player.position.x + player.width, e3.position.x + e3.width) - Math.max(player.position.x, e3.position.x)) * (Math.min(player.position.y+ player.height, e3.position.y + e3.height) - Math.max(player.position.y, e3.position.y))
-            if (rectangularCollision({
-                rectangle1: player,
-                rectangle2: e3
-            }) && overlappingAre>(player.width*player.height)/4
-        ){
-                console.log('entry3 detected')
-                entryContent.initiated = true
-                break
+            // For entry 3 (contact)
+            if (rectangularCollision({ rectangle1: player, rectangle2: e3 }) && overlappingAre > (player.width * player.height) / 4) {
+                localStorage.setItem('lastEntry', 'contact');
+                localStorage.setItem('worldReturnOffset', JSON.stringify({
+                    background: { x: background.position.x, y: background.position.y }
+                }));
+                window.location.href = 'contact.html';
+                return;
             }
         }
     }

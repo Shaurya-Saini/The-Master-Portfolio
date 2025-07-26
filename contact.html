@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portfolio</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <h1 class="page-title">PORTFOLIO - SHAURYA SAINI</h1>
+    
+    <div class="glass-overlay"></div>
+    
+    <div class="contact-container">
+        <div class="contact-card">
+            <button class="back-button" onclick="returnToMap()">← Back</button>
+            
+            <div class="contact-header">
+                <h1 class="contact-name">Get In Touch</h1>
+                <p class="contact-title">Let's Connect & Collaborate</p>
+            </div>
+            
+            <div class="contact-description">
+                I'm always excited to work on new projects and collaborate with creative minds. 
+                Whether you have a project in mind, want to discuss opportunities, or just want to say hello, 
+                feel free to reach out through any of the channels below.
+            </div>
+            
+            <div class="contact-sections">
+                <div class="contact-section">
+                    <h3 class="section-title">📧 Email</h3>
+                    <div class="contact-item">
+                        <a href="mailto:shaurya.saini@example.com" class="contact-link">
+                            shaurya.saini@example.com
+                        </a>
+                        <p class="contact-note">I typically respond within 24 hours</p>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="section-title">💼 LinkedIn</h3>
+                    <div class="contact-item">
+                        <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank">
+                            linkedin.com/in/yourusername
+                        </a>
+                        <p class="contact-note">Connect for professional opportunities</p>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="section-title">🐙 GitHub</h3>
+                    <div class="contact-item">
+                        <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+                            github.com/yourusername
+                        </a>
+                        <p class="contact-note">Check out my latest projects and contributions</p>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="section-title">📱 Social Media</h3>
+                    <div class="contact-item">
+                        <div class="social-links">
+                            <a href="https://twitter.com/yourusername" class="social-link" target="_blank">
+                                <span class="social-icon">🐦</span>
+                                Twitter
+                            </a>
+                            <a href="https://instagram.com/yourusername" class="social-link" target="_blank">
+                                <span class="social-icon">📷</span>
+                                Instagram
+                            </a>
+                        </div>
+                        <p class="contact-note">Follow for updates and behind-the-scenes content</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h3 class="about-title">About Me</h3>
+                <div class="about-content">
+                    <p>
+                        I'm a passionate developer who loves turning ideas into reality through code. 
+                        My journey in technology started with curiosity and has evolved into a deep 
+                        passion for creating meaningful digital experiences.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me exploring new technologies, contributing 
+                        to open-source projects, or sharing knowledge with the developer community. 
+                        I believe in continuous learning and pushing the boundaries of what's possible.
+                    </p>
+                    <p>
+                        I'm particularly interested in web development, game development, and emerging 
+                        technologies like AI and machine learning. I enjoy working on projects that 
+                        challenge me to think creatively and solve complex problems.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="availability-section">
+                <h3 class="availability-title">Current Availability</h3>
+                <div class="availability-status">
+                    <span class="status-indicator available"></span>
+                    <span class="status-text">Available for new opportunities</span>
+                </div>
+                <p class="availability-note">
+                    I'm currently open to freelance projects, full-time positions, and interesting collaborations. 
+                    Let's discuss how we can work together!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function returnToMap() {
+            localStorage.setItem('returnFromContact', 'true');
+            // localStorage.setItem('returnPosition', JSON.stringify({
+            //     x: 0,
+            //     y: 20 // Offset for entry 3
+            // }));
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

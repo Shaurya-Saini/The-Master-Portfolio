@@ -4,61 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Shaurya Saini</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #000000;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .title {
-            color: #ffffff;
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            letter-spacing: 2px;
-        }
-
-        .game-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-        }
-
-        canvas {
-            border: 2px solid #333;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .title {
-                font-size: 1.8rem;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="title">PORTFOLIO - SHAURYA SAINI</h1>
-    
+    <!-- <div class="navbar">
+        Home | Projects | Profile | Contact
+    </div> -->
+
+    <div class="pixel-title" id="pixelTitle">SHAURYA SAINI</div>
+    <div class="pixel-subtitle" id="pixelTitle">AI-ML ENGINEER</div>
+
     <div class="game-container">
+        <div class="menu-dropdown-container">
+            <button class="menu-btn" id="menuBtn">
+                <img src="assets/menu_button.png" alt="Menu" />
+            </button>
+            <div class="dropdown" id="dropdownMenu">
+                <a href="index.html">Home</a>
+                <a href="projects.html" class="menu-link" data-target="projects">Projects</a>
+                <a href="profile.html" class="menu-link" data-target="profile">Profile</a>
+                <a href="contact.html" class="menu-link" data-target="contact">Contact</a>
+            </div>
+        </div>
         <canvas></canvas>
+        <div class="help-dropdown-container">
+            <button class="help-btn" id="helpBtn">
+                <img src="assets/help_button.png" alt="Help" />
+            </button>
+            <div class="help-dropdown" id="helpDropdown">
+                <div class="help-text">
+                    <strong>How to Play:</strong><br>
+                    Use <b>WASD</b> or <b>Arrow keys</b> to move.<br>
+                    Walk into colored zones to enter pages.<br>
+                    Explore and interact!
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- <div class="content-section">
+        <h2>About Me</h2>
+        <p>
+            Welcome to my interactive portfolio! Scroll down to learn more about my interests, skills, and projects.
+        </p>
+        <h3>Interests</h3>
+        <ul>
+            <li>Game Development</li>
+            <li>Web Technologies</li>
+            <li>AI/ML</li>
+            <li>Pixel Art</li>
+        </ul>
+    </div> -->
 
     <script src="data/collisions.js"></script>
     <script src="data/enter1.js"></script>
@@ -66,5 +63,63 @@
     <script src="data/enter3.js"></script>
     <script src="classes.js"></script>
     <script src="index.js"></script>
+    <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const helpBtn = document.getElementById('helpBtn');
+    const helpDropdown = document.getElementById('helpDropdown');
+    let menuOpen = false;
+    let helpOpen = false;
+
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuOpen = !menuOpen;
+        helpOpen = false;
+        dropdownMenu.style.display = menuOpen ? 'block' : 'none';
+        helpDropdown.style.display = 'none';
+    });
+
+    helpBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        helpOpen = !helpOpen;
+        menuOpen = false;
+        helpDropdown.style.display = helpOpen ? 'block' : 'none';
+        dropdownMenu.style.display = 'none';
+    });
+
+    // Close both dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        dropdownMenu.style.display = 'none';
+        helpDropdown.style.display = 'none';
+        menuOpen = false;
+        helpOpen = false;
+    });
+
+    // Entry arrays are available globally from index.js
+    const entryArrays = {
+        projects: window.enter01,
+        profile: window.enter02,
+        contact: window.enter03
+    };
+
+    document.querySelectorAll('.menu-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetKey = this.getAttribute('data-target');
+            const entryArray = entryArrays[targetKey];
+            console.log('Menu click:', { targetKey, entryArray });
+            if (targetKey && entryArray && entryArray.length > 0) {
+                e.preventDefault();
+                dropdownMenu.style.display = 'none';
+                menuOpen = false;
+                if (typeof window.movePlayerToEntry !== 'function') {
+                    console.error('movePlayerToEntry is not defined');
+                }
+                window.movePlayerToEntry(entryArray, () => {});
+            } else {
+                console.warn('No valid entry array for', targetKey, entryArray);
+            }
+        });
+    });
+</script>
 </body>
 </html>
