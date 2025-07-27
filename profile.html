@@ -15,15 +15,95 @@
                 <img src="assets/back_button.png" alt="Back to Map" />
             </button>
             <div class="back-btn-tooltip" id="backBtnTooltip">Return Back To Map</div>
+
+            <!-- Contact Info Button -->
+            <button class="contact-btn" onclick="showContactModal()" onmouseover="showContactTooltip()" onmouseout="hideContactTooltip()">
+                <img src="assets/contact_info.png" alt="Contact Info" />
+            </button>
+            <div class="contact-btn-tooltip" id="contactBtnTooltip">Contact Info</div>
+
+            <!-- Menu Button -->
+            <button class="profile-menu-btn"
+                    onclick="toggleMenuDropdown(event)"
+                    onmouseover="showMenuHoverTip()"
+                    onmouseout="hideMenuHoverTip()">
+                <img src="assets/menu_button.png" alt="Menu" />
+            </button>
+            <div class="profile-menu-hover-tip" id="profileMenuHoverTip">Navigation Menu</div>
+            <div class="profile-menu-tooltip" id="profileMenuTooltip">
+                <!-- <a href="index.html">Home</a><br> -->
+                <a href="profile.html">Profile</a><br>
+                <a href="projects.html">Projects</a><br>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
+
         <div class="profile-card">
             <div class="profile-card-left">
                 <div class="profile-name">SHAURYA SAINI</div>
                 <div class="profile-title">AI-ML Engineer</div>
                 <div class="profile-description">
                     I am an AI/ML engineer and developer passionate about building intelligent, interactive, and visually engaging digital experiences.<br><br>
-                    My expertise spans artificial intelligence, machine learning, web development, and creative coding. I enjoy solving complex problems, experimenting with new technologies, and bringing ideas to life through code.<br><br>
-                    Whether it's developing smart applications, crafting pixel-perfect interfaces, or exploring the latest in AI, I thrive on challenges that push the boundaries of what's possible.
+                </div>
+                <div class="skills-section">
+                    <div class="skills-title">SKILLS</div>
+                    <div class="skills-icons">
+                        <!-- Languages -->
+                        <div class="skill-icon" data-skill="C/C++">
+                            <img src="assets/skills/c_cpp.png" alt="C/C++" />
+                            <span class="skill-tooltip">C/C++</span>
+                        </div>
+                        <div class="skill-icon" data-skill="Java">
+                            <img src="assets/skills/java.png" alt="Java" />
+                            <span class="skill-tooltip">Java</span>
+                        </div>
+                        <div class="skill-icon" data-skill="Python">
+                            <img src="assets/skills/Python.png" alt="Python" />
+                            <span class="skill-tooltip">Python</span>
+                        </div>
+                        <!-- Frameworks/Libraries -->
+                        <div class="skill-icon" data-skill="React">
+                            <img src="assets/skills/react.png" alt="React" />
+                            <span class="skill-tooltip">React</span>
+                        </div>
+                        <div class="skill-icon" data-skill="TensorFlow">
+                            <img src="assets/skills/tensorflow.png" alt="TensorFlow" />
+                            <span class="skill-tooltip">TensorFlow</span>
+                        </div>
+                        <div class="skill-icon" data-skill="Scikit-learn">
+                            <img src="assets/skills/scikit_learn.png" alt="Scikit-learn" />
+                            <span class="skill-tooltip">Scikit-learn</span>
+                        </div>
+                        <div class="skill-icon" data-skill="LangChain">
+                            <img src="assets/skills/LangChain.png" alt="LangChain" />
+                            <span class="skill-tooltip">LangChain</span>
+                        </div>
+                        <div class="skill-icon" data-skill="NumPy">
+                            <img src="assets/skills/numpy.png" alt="NumPy" />
+                            <span class="skill-tooltip">NumPy</span>
+                        </div>
+                        <div class="skill-icon" data-skill="Pandas">
+                            <img src="assets/skills/pandas.png" alt="Pandas" />
+                            <span class="skill-tooltip">Pandas</span>
+                        </div>
+                        <div class="skill-icon" data-skill="Matplotlib">
+                            <img src="assets/skills/matplotlib.png" alt="Matplotlib" />
+                            <span class="skill-tooltip">Matplotlib</span>
+                        </div>
+                        <div class="skill-icon" data-skill="OpenCV">
+                            <img src="assets/skills/opencv.png" alt="OpenCV" />
+                            <span class="skill-tooltip">OpenCV</span>
+                        </div>
+                        <!-- Tools/Other -->
+                        <div class="skill-icon" data-skill="Git">
+                            <img src="assets/skills/git.png" alt="Git" />
+                            <span class="skill-tooltip">Git</span>
+                        </div>
+                        <div class="skill-icon" data-skill="PostgreSQL">
+                            <img src="assets/skills/Postgresql.png" alt="PostgreSQL" />
+                            <span class="skill-tooltip">PostgreSQL</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="profile-card-right">
@@ -32,6 +112,34 @@
             </div>
         </div>
     </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-content">
+            <button class="close-modal-btn" onclick="hideContactModal()">&times;</button>
+            <div class="contact-modal-title">CONTACT INFO</div>
+            <div class="contact-modal-list">
+                <div class="contact-modal-item">
+                    <span>Email:</span>
+                    <a href="mailto:yourmail@example.com">yourmail@example.com</a>
+                </div>
+                <div class="contact-modal-item">
+                    <span>LinkedIn:</span>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
+                </div>
+                <div class="contact-modal-item">
+                    <span>GitHub:</span>
+                    <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                </div>
+                <div class="contact-modal-item">
+                    <span>Medium:</span>
+                    <a href="https://medium.com/@yourusername" target="_blank">medium.com/@yourusername</a>
+                </div>
+                <!-- Optional: Add more social links here -->
+            </div>
+        </div>
+    </div>
+
     <script>
         function returnToMap() {
             localStorage.setItem('returnFromProfile', 'true');
@@ -43,6 +151,47 @@
         function hideTooltip() {
             document.getElementById('backBtnTooltip').style.display = 'none';
         }
+        // Contact Info Modal
+        function showContactModal() {
+            document.getElementById('contactModal').classList.add('active');
+        }
+        function hideContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+        }
+        // Tooltip for contact
+        function showContactTooltip() {
+            document.getElementById('contactBtnTooltip').style.display = 'block';
+        }
+        function hideContactTooltip() {
+            document.getElementById('contactBtnTooltip').style.display = 'none';
+        }
+        // Tooltip for menu
+        function showMenuHoverTip() {
+            document.getElementById('profileMenuHoverTip').style.display = 'block';
+        }
+        function hideMenuHoverTip() {
+            document.getElementById('profileMenuHoverTip').style.display = 'none';
+        }
+        function toggleMenuDropdown(event) {
+            event.stopPropagation();
+            const tooltip = document.getElementById('profileMenuTooltip');
+            const isActive = tooltip.style.display === 'block';
+            tooltip.style.display = isActive ? 'none' : 'block';
+        }
+        // Close modal on background click
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('contactModal');
+            if (modal && modal.classList.contains('active') && e.target === modal) {
+                hideContactModal();
+            }
+        });
+        // Close menu dropdown on click outside
+        window.addEventListener('click', function(e) {
+            const tooltip = document.getElementById('profileMenuTooltip');
+            if (tooltip && tooltip.style.display === 'block' && !tooltip.contains(e.target)) {
+                tooltip.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>

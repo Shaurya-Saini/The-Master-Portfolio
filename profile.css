@@ -73,8 +73,8 @@ body {
             padding: 0;
         }
         .back-btn img {
-            width: 105px;
-            height: 95px;
+            width: 102px;
+            height: 92px;
             border-radius: 50%;
             border: none; /* Remove border */
             background: none; /* Remove background */
@@ -224,6 +224,112 @@ body {
             text-align: justify;
             letter-spacing: 0.5px;
         }
+        .skills-section {
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .skills-title {
+            font-size: 1.1rem;
+            color: #512F13;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+        }
+
+        .skills-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px 55px;
+        }
+
+        .skill-icon {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            /* Glass background for icon */
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 18px;
+            padding: 18px 22px;
+            box-shadow: 0 2px 12px rgba(81,47,19,0.10);
+            transition: box-shadow 0.18s, background 0.18s;
+        }
+
+        .skill-icon img {
+            display: block;
+            width: auto;
+            height: 68px;
+            max-width: 160px;
+            object-fit: contain;
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
+            border: none;
+            transition: transform 0.15s, filter 0.15s;
+            filter: drop-shadow(0 2px 8px rgba(81,47,19,0.10));
+        }
+
+        /* Make horizontal logos even bigger */
+        .skill-icon img[alt="Matplotlib"],
+        .skill-icon img[alt="Scikit-learn"],
+        .skill-icon img[alt="LangChain"],
+        .skill-icon img[alt="PostgreSQL"] {
+            height: 68px;
+            max-width: 220px;
+            min-width: 120px;
+        }
+
+        /* On hover: highlight glass and icon */
+        .skill-icon:hover {
+            box-shadow: 0 4px 24px #F2B87A44;
+            background: rgba(255,255,255,0.28);
+        }
+        .skill-icon:hover img {
+            transform: scale(1.13);
+            filter: drop-shadow(0 4px 16px #F2B87A);
+            border: none;
+        }
+
+        .skill-tooltip {
+            display: none;
+            position: absolute;
+            bottom: -38px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #402108;
+            color: #F2B87A;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            white-space: nowrap;
+            z-index: 20;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            pointer-events: none;
+        }
+
+        .skill-icon:hover .skill-tooltip {
+            display: block;
+        }
+
+        /* Responsive: shrink icons on small screens */
+        @media (max-width: 600px) {
+            .skill-icon img {
+                width: 32px;
+                height: 32px;
+            }
+            .skill-tooltip {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+                bottom: -28px;
+            }
+        }
         @media (max-width: 1100px) {
             .profile-card {
                 max-width: 98vw;
@@ -256,7 +362,7 @@ body {
                 height: 80px;
             }
         }
-        /* 4. Prevent page scrolling, only allow scroll in .profile-card-left */
+        /* 4. Prevent page scrolling, only allow scroll in .profile-card_left */
         html, body {
             height: 100%;
             overflow: hidden;
@@ -265,4 +371,234 @@ body {
             height: 100vh;
             width: 100vw;
             /* ...existing code... */
+        }
+        /* filepath: e:\Programming\ARTICLES\DEVLOPMENT\My_portfolio\profile.css */
+        /* Contact Info Button */
+        .contact-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            width: 64px;
+            height: 64px;
+            margin-top: 18px;
+            position: relative;
+            padding: 0;
+        }
+        .contact-btn img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: none;
+            box-shadow: none;
+            transition: box-shadow 0.2s;
+            margin-left: 7px;
+            margin-top: 13px;
+        }
+        .contact-btn:hover img {
+            box-shadow: 0 0 12px #F2B87A88;
+        }
+        .contact-btn-tooltip {
+            display: none;
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #402108;
+            color: #F2B87A;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Menu Button below contact */
+        .profile-menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            width: 64px;
+            height: 64px;
+            margin-top: 18px;
+            position: relative;
+            padding: 0;
+        }
+        .profile-menu-btn img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: none;
+            box-shadow: none;
+            transition: box-shadow 0.2s;
+            margin-left: 7px;
+            margin-top: 22px;
+        }
+        .profile-menu-btn:hover img {
+            box-shadow: 0 0 12px #F2B87A88;
+        }
+        .profile-menu-hover-tip {
+            display: none;
+            position: absolute;
+            left: 50px;
+            top: 59%;
+            transform: translateY(-50%);
+            background: #402108;
+            color: #F2B87A;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            white-space: nowrap;
+            z-index: 20;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .profile-menu-btn:hover + .profile-menu-hover-tip {
+            display: block;
+        }
+
+        /* Show/hide dropdown menu */
+        .profile-menu-tooltip {
+            display: none;
+            position: absolute;
+            left: 50px;
+            top: 65%;
+            transform: translateY(-50%);
+            background: #402108;
+            color: #F2B87A;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            white-space: nowrap;
+            z-index: 30;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .profile-menu-tooltip.active {
+            display: block;
+        }
+
+        /* Modal Styles */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.45);
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-modal-content {
+            background: #6B3E1D;
+            border-radius: 18px;
+            padding: 38px 38px 28px 38px;
+            min-width: 340px;
+            max-width: 95vw;
+            box-shadow: 0 8px 40px 0 rgba(0,0,0,0.45);
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            color: #F2B87A;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+        }
+        .close-modal-btn {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: none;
+            color: #F2B87A;
+            font-size: 2rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .contact-modal-title {
+            font-size: 1.5rem;
+            color: #F2B87A;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+        .contact-modal-list {
+            width: 100%;
+            margin-bottom: 24px;
+        }
+        .contact-modal-item {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-modal-item span {
+            color: #fff;
+            font-weight: bold;
+            min-width: 90px;
+            display: inline-block;
+        }
+        .contact-modal-item a {
+            color: #F2B87A;
+            text-decoration: underline;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .contact-modal-item a:hover {
+            color: #fff;
+        }
+        .contact-modal-menu {
+            display: flex;
+            gap: 24px;
+            margin-top: 10px;
+            width: 100%;
+            justify-content: flex-end;
+        }
+        .contact-modal-menu a {
+            color: #F2B87A;
+            background: #402108;
+            border-radius: 8px;
+            padding: 8px 18px;
+            text-decoration: none;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .contact-modal-menu a:hover {
+            background: #F2B87A;
+            color: #402108;
+        }
+
+        /* Show modal */
+        .contact-modal.active {
+            display: flex;
+        }
+
+        /* Tooltip show logic */
+        .contact-btn:hover + .contact-btn-tooltip,
+        .profile-menu-btn:hover + .profile-menu-tooltip {
+            display: block;
+        }
+        .contact-btn:hover img,
+        .profile-menu-btn:hover img {
+            /* Remove border or box-shadow highlight on hover */
+            box-shadow: none;
+            border: none;
+        }
+        /* Style links in menu tooltip */
+        .profile-menu-tooltip a {
+            color: #F2B87A;
+            text-decoration: none;
+            font-family: 'Press Start 2P', monospace, 'Roboto', sans-serif;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 6px;
+            transition: color 0.2s;
+        }
+        .profile-menu-tooltip a:hover {
+            background: #2b1402;
         }
