@@ -3,66 +3,56 @@ const projectsData = [
     {
         "id": 1,
         "type": "project",
-        "title": "E-Commerce Platform",
-        "subtitle": "Full-Stack Web Application",
-        "description": "A comprehensive e-commerce platform built with modern web technologies. Features include user authentication, product catalog, shopping cart, payment integration, and admin dashboard. Implemented responsive design and optimized for performance.",
-        "image": "/placeholder.svg?height=200&width=300&text=E-Commerce+Platform",
-        "githubLink": "https://github.com/yourusername/ecommerce-platform",
-        "deploymentLink": "https://your-ecommerce-demo.vercel.app",
-        "techStack": ["React", "Node.js", "MongoDB", "Express", "Stripe", "JWT", "Tailwind CSS"]
+        "title": "Email Highlighter",
+        "subtitle": "ML Powered Chrome Extension",
+        "description": "Built a chrome extension to extract all mails in collage account and classify and highlight them using TensorFlowJS and an text classifier trained on self labeled dataset extracted using . Achieved over 88% accuracy on new data on the collage email.",
+        "image": "assets/projects/email.png",
+        "githubLink": "https://github.com/Shaurya-Saini/Email_Highlighter",
+        // "deploymentLink": "https://your-ecommerce-demo.vercel.app",
+        "techStack": ["Tensorflow", "TensorflowJS", "JavaScript", "Chrome Extension", "HTML", "CSS"]
     },
     {
         "id": 2,
         "type": "project",
-        "title": "AI Chat Application",
-        "subtitle": "Real-time Messaging with AI Integration",
-        "description": "An intelligent chat application that integrates AI-powered responses with real-time messaging. Features include group chats, file sharing, emoji reactions, and smart AI assistance for enhanced user experience.",
-        "image": "/placeholder.svg?height=200&width=300&text=AI+Chat+App",
-        "githubLink": "https://github.com/yourusername/ai-chat-app",
-        "deploymentLink": "https://your-chat-app.vercel.app",
-        "techStack": ["Next.js", "Socket.io", "OpenAI API", "PostgreSQL", "Prisma", "TypeScript"]
+        "title": "PrivGuard",
+        "subtitle": "Digital Privacy App",
+        "description": "Build a flutter application that is designed to help users analyze and protect their digitalprivacy using a locally stored TensorFlow lite named entity recognition model for scanning text based posts and also has encrypted local storage for securely store all media types. Now hosted as an open source project on IEEE-VIT’s GitHub page.",
+        "image": "assets/projects/priv.png",
+        "githubLink": "https://github.com/IEEE-VIT/priv-guard",
+        // "deploymentLink": "https://your-chat-app.vercel.app",
+        "techStack": ["Flutter", "TensorFlow", "TensorFlow Lite", "LocalStorage", "Encryption"]
     },
     {
         "id": 3,
-        "type": "publication",
-        "title": "Machine Learning in Web Development",
-        "subtitle": "Published in Tech Journal 2024",
-        "description": "An in-depth analysis of how machine learning algorithms can be integrated into modern web development workflows. The paper explores practical implementations, performance considerations, and future trends in ML-powered web applications.",
-        "image": "/placeholder.svg?height=200&width=300&text=ML+Research+Paper",
-        "githubLink": "",
-        "deploymentLink": "https://techjournal.com/ml-web-development-2024"
+        "type": "project",
+        "title": "AirMouse",
+        "subtitle": "Dual-Mode Wireless Human-Computer Interface",
+        "description": "The Air Mouse is a wireless, dual-mode input device that enables cursor control, left/right clicks, scrolling, zooming, volume control, and tab/application switching through motion tracking and hand gesture recognition. It combines embedded sensor data and real-time computer vision for seamless human-computer interaction.",
+        "image": "assets/projects/air.jpg",
+        "githubLink": "https://github.com/Shaurya-Saini/AirMouse",
+        // "deploymentLink": "https://your-dashboard.vercel.app",
+        "techStack": ["ESP32", "MPU6050", "BLE", "OpenCV", "Flex Sensors", "MediaPipe"]
     },
     {
         "id": 4,
-        "type": "project",
-        "title": "Data Visualization Dashboard",
-        "subtitle": "Interactive Analytics Platform",
-        "description": "A powerful data visualization dashboard that transforms complex datasets into interactive charts and graphs. Built with D3.js and React, it provides real-time analytics, customizable widgets, and export functionality for business intelligence.",
-        "image": "/placeholder.svg?height=200&width=300&text=Data+Dashboard",
-        "githubLink": "https://github.com/yourusername/data-viz-dashboard",
-        "deploymentLink": "https://your-dashboard.vercel.app",
-        "techStack": ["React", "D3.js", "Python", "FastAPI", "PostgreSQL", "Chart.js"]
-    },
-    {
-        "id": 5,
         "type": "publication",
-        "title": "Sustainable Software Architecture",
-        "subtitle": "IEEE Conference Proceedings 2024",
-        "description": "Research paper focusing on sustainable software development practices and their impact on system performance and environmental footprint. Presents novel approaches to green computing in enterprise applications.",
-        "image": "/placeholder.svg?height=200&width=300&text=Sustainable+Architecture",
+        "title": "WEB SCRAPING: Extracting Data for AI and Beyond",
+        "subtitle": "Published on Medium on March 2024",
+        "description": "An article on web scraping in Python covering essential libraries like BeautifulSoup, Requests, and Selenium, along with data extraction techniques, advanced tools such as headers, sessions, and proxies, best practices, and ethical considerations. Published under Techloop, the official publication of IEEE VIT.",
+        "image": "assets/projects/web.png",
         "githubLink": "",
-        "deploymentLink": "https://ieeexplore.ieee.org/document/sustainable-arch-2024"
+        "deploymentLink": "https://medium.com/techloop/web-scraping-extracting-data-for-ai-and-beyond-without-getting-arrested-497058f9aa1f"
     },
     {
         "id": 6,
         "type": "project",
-        "title": "Mobile Fitness Tracker",
-        "subtitle": "Cross-Platform Mobile Application",
-        "description": "A comprehensive fitness tracking application built with React Native. Features workout planning, progress tracking, social challenges, and integration with wearable devices. Includes offline functionality and data synchronization.",
-        "image": "/placeholder.svg?height=200&width=300&text=Fitness+Tracker",
-        "githubLink": "https://github.com/yourusername/fitness-tracker",
-        "deploymentLink": "https://play.google.com/store/apps/details?id=com.yourapp.fitness",
-        "techStack": ["React Native", "Firebase", "Redux", "Node.js", "MongoDB", "Push Notifications"]
+        "title": "Indian IT Companies: Revenue and Stock Price Analysis",
+        "subtitle": "Data Analysis and Visualization",
+        "description": "This project analyzes the relationship between revenue growth and stock price movements for five Indian IT companies—TCS, Infosys, Wipro, Persistent Systems, and Mphasis—from 2014 to 2024. It explores how revenue growth impacts stock performance and the influence of global events (e.g., COVID-19, economic slowdowns) on IT stock prices.",
+        "image": "assets/projects/companies.png",
+        "githubLink": "https://github.com/Shaurya-Saini/Indian-IT-Revenue-Stock-Analysis",
+        // "deploymentLink": "https://play.google.com/store/apps/details?id=com.yourapp.fitness",
+        "techStack": ["Pandas", "Numpy", "Matplotlib", "Seaborn", "Jupyter Notebook"]
     }
 ];
 

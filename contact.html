@@ -3,122 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Portfolio</title>
+    <title>Experience and Certification</title>
     <link rel="stylesheet" href="contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="page-title">PORTFOLIO - SHAURYA SAINI</h1>
-    
-    <div class="glass-overlay"></div>
-    
-    <div class="contact-container">
-        <div class="contact-card">
-            <button class="back-button" onclick="returnToMap()">← Back</button>
-            
-            <div class="contact-header">
-                <h1 class="contact-name">Get In Touch</h1>
-                <p class="contact-title">Let's Connect & Collaborate</p>
+    <div class="container">
+      <h1 class="title">EXPERIENCE</h1>
+      <div class="back-btn-container">
+            <button class="back-btn" onclick="returnToMap()" onmouseover="showTooltip()" onmouseout="hideTooltip()">
+                <img src="assets/back_button.png" alt="Back to Map" />
+            </button>
+            <div class="back-btn-tooltip" id="backBtnTooltip">Return Back To Map</div>
+
+            <!-- Contact Info Button -->
+            <button class="contact-btn" onclick="showContactModal()" onmouseover="showContactTooltip()" onmouseout="hideContactTooltip()">
+                <img src="assets/contact_info.png" alt="Contact Info" />
+            </button>
+            <div class="contact-btn-tooltip" id="contactBtnTooltip">Contact Info</div>
+
+            <!-- Menu Button -->
+            <button class="profile-menu-btn"
+                    onclick="toggleMenuDropdown(event)"
+                    onmouseover="showMenuHoverTip()"
+                    onmouseout="hideMenuHoverTip()">
+                <img src="assets/menu_button.png" alt="Menu" />
+            </button>
+            <div class="profile-menu-hover-tip" id="profileMenuHoverTip">Navigation Menu</div>
+            <div class="profile-menu-tooltip" id="profileMenuTooltip">
+                <!-- <a href="index.html">Home</a><br> -->
+                <a href="profile.html">Profile</a><br>
+                <a href="projects.html">Projects</a><br>
+                <a href="contact.html">Contact</a>
             </div>
-            
-            <div class="contact-description">
-                I'm always excited to work on new projects and collaborate with creative minds. 
-                Whether you have a project in mind, want to discuss opportunities, or just want to say hello, 
-                feel free to reach out through any of the channels below.
-            </div>
-            
-            <div class="contact-sections">
-                <div class="contact-section">
-                    <h3 class="section-title">📧 Email</h3>
-                    <div class="contact-item">
-                        <a href="mailto:shaurya.saini@example.com" class="contact-link">
-                            shaurya.saini@example.com
-                        </a>
-                        <p class="contact-note">I typically respond within 24 hours</p>
-                    </div>
-                </div>
-                
-                <div class="contact-section">
-                    <h3 class="section-title">💼 LinkedIn</h3>
-                    <div class="contact-item">
-                        <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank">
-                            linkedin.com/in/yourusername
-                        </a>
-                        <p class="contact-note">Connect for professional opportunities</p>
-                    </div>
-                </div>
-                
-                <div class="contact-section">
-                    <h3 class="section-title">🐙 GitHub</h3>
-                    <div class="contact-item">
-                        <a href="https://github.com/yourusername" class="contact-link" target="_blank">
-                            github.com/yourusername
-                        </a>
-                        <p class="contact-note">Check out my latest projects and contributions</p>
-                    </div>
-                </div>
-                
-                <div class="contact-section">
-                    <h3 class="section-title">📱 Social Media</h3>
-                    <div class="contact-item">
-                        <div class="social-links">
-                            <a href="https://twitter.com/yourusername" class="social-link" target="_blank">
-                                <span class="social-icon">🐦</span>
-                                Twitter
-                            </a>
-                            <a href="https://instagram.com/yourusername" class="social-link" target="_blank">
-                                <span class="social-icon">📷</span>
-                                Instagram
-                            </a>
-                        </div>
-                        <p class="contact-note">Follow for updates and behind-the-scenes content</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about-section">
-                <h3 class="about-title">About Me</h3>
-                <div class="about-content">
-                    <p>
-                        I'm a passionate developer who loves turning ideas into reality through code. 
-                        My journey in technology started with curiosity and has evolved into a deep 
-                        passion for creating meaningful digital experiences.
-                    </p>
-                    <p>
-                        When I'm not coding, you can find me exploring new technologies, contributing 
-                        to open-source projects, or sharing knowledge with the developer community. 
-                        I believe in continuous learning and pushing the boundaries of what's possible.
-                    </p>
-                    <p>
-                        I'm particularly interested in web development, game development, and emerging 
-                        technologies like AI and machine learning. I enjoy working on projects that 
-                        challenge me to think creatively and solve complex problems.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="availability-section">
-                <h3 class="availability-title">Current Availability</h3>
-                <div class="availability-status">
-                    <span class="status-indicator available"></span>
-                    <span class="status-text">Available for new opportunities</span>
-                </div>
-                <p class="availability-note">
-                    I'm currently open to freelance projects, full-time positions, and interesting collaborations. 
-                    Let's discuss how we can work together!
+        </div>
+  <div class="sprite-wrapper">
+    <div class="book">
+      <!--  Carousel container -->
+      <div class="carousel" style="--slides: 3;">
+        <!--  Bg sprite -->
+        <div class="sprite"></div>
+        <!--  Carousel items -->
+        <div class="carousel-item">
+          <div class="page-container">
+            <div class="page left-page">
+              <div>
+                <h2 style="font-weight: 900;">AI ENGINEERING INTERN</h2>
+                <h4 style="font-size: medium;">@PRIORISE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-style: italic;font-size: small;">June 2025 - July 2025</span></h4>
+                <p style="margin: 0; text-indent: 1rem">
+                  OVERVIEW <br> I built GPT-4o-powered systems for persona-based analysis of structured sales and advertising data. My main focus was developing a multi-agent LLM backend that processed reports from platforms like Amazon and delivered real-time, context-aware insights using PostgreSQL and OpenAI models. This role deepened my practical skills in LLM integration, data handling, MCP servers, and prompt engineering.
                 </p>
+              </div>
+            </div>
+            <div class="page right-page">
+              <div>
+                <p style="margin: 0; text-indent: 1rem">
+                  IMPACT AND ACHIEVEMENTS
+                </p>
+                <p style="margin: 0; text-indent: 1rem">
+                  <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0"></ul>
+                  <li>Developed an MCP server linking GPT-4o with PostgreSQL, allowing live querying of large-scale data.</li>
+                  <li>Built a multi-agent GPT-4o system, improving response accuracy and speed by <span style="font-weight:900;">80%</span> through task specialization.</li>         
+                  <li>Applied advanced prompt engineering techniques to enhance response relevance and consistency.</li>
+
+
+                </p><br>
+                <p style="margin: 0; text-indent: 1rem">TECHNOLODGY USED</p>
+                <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0">
+                  <li>Backend: FastAPI, MCP (fastMCP and MCP Client)</li>
+                  <li>Database: PostgreSQL</li>
+                  <li>Techniques: Multi-agent orchestration, Prompt Engineering, Semantic search</li>
+                </ul><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="page-container">
+            <div class="page left-page">
+              <div><h2 style="font-weight: 900;">SENIOR CORE MEMBER</h2>
+                <h4 style="font-size: medium;">@IEEE-VIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-style: italic;font-size: small;">Jan 2025 - Present</span></h4>
+                <p style="margin: 0; text-indent: 1rem">
+                  OVERVIEW <br> IEEE-VIT is one of the most active IEEE chapters in Region 10, focused on "Advancing Humanity through Technology." As a senior core member, I contributed to both the technical and management domains, gaining hands-on experience through events, hackathons, and project-based learning. The chapter provided a strong platform to grow as both an engineer and a leader.
+                </p>
+              </div>
+            </div>
+            <div class="page right-page">
+              <div>
+                <br><br>
+                <p style="margin: 0; text-indent: 1rem">
+                  IMPACT AND ACHIEVEMENTS
+                </p>
+                <p style="margin: 0; text-indent: 1rem">
+                  <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0"></ul>
+                  <li>Mentored electronics and ML projects cycle within the technical team.</li>
+                  <li>Creater and maintainer of an open-source project on the IEEE-VIT’s Github page.</li>         
+                  <li>Published multiple technical articles (50+ reads) via the club’s Medium publication.</li>
+                  <li>Led the sponsorship domain and assisted in event coordination efforts</li>
+                </p><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="page-container">
+            <div class="page left-page">
+              <div><h2 style="font-weight: 900;">SOFTWARE DEVELOPER (INDEPENDANT)</h2>
+                <h4 style="font-size: medium;">@Indian Army Aviation Corps (Volunteer Contribution)</h4>
+                <p style="margin: 0; text-indent: 1rem">
+                  OVERVIEW <br> Worked directly with officers and technicians from the Indian Army Aviation Corps to understand on-ground challenges in helicopter rotor balancing. Built a specialized tool tailored to their needs, helping reduce workload, error, and time in a mission-critical maintenance task.
+                </p>
+              </div>
+            </div>
+            <div class="page right-page">
+              <div>
+                <br><br>
+                <p style="margin: 0; text-indent: 1rem">
+                  IMPACT AND ACHIEVEMENTS
+                </p>
+                <p style="margin: 0; text-indent: 1rem">
+                  <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0"></ul>
+                  <li>Built and deployed a Rotor Vibration Weight Calculator used in active Cheetah and Chetak helicopter maintenance operations.</li>
+                  <li>Automated optimal counterweight selection in &lt;1 second, replacing manual trial-and-error methods.</li>         
+                  <li>Tool supports both Main and Tail Rotor configurations, improving efficiency and accuracy.</li>
+                  <li>Received an official letter of appreciation from the Army Aviation Corps for the successful deployment and impact of the tool. (<a href="https://yourusername.github.io/your-repo-name/path-to-file/letter.pdf" target="_blank" rel="noopener noreferrer">View Appreciation Letter</a>)</li>
+                </p><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+     <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-content">
+            <button class="close-modal-btn" onclick="hideContactModal()">&times;</button>
+            <div class="contact-modal-title">CONTACT INFO</div>
+            <div class="contact-modal-list">
+               <div class="contact-modal-item">
+                    <span>Email:</span>
+                    <a href="mailto:shauryathemaster01@gmail.com">shauryathemaster01@gmail.com</a>
+                </div>
+                <div class="contact-modal-item">
+                    <span>LinkedIn:</span>
+                    <a href="https://www.linkedin.com/in/shaurya-saini-9b016228a/" target="_blank">linkedin.com/in/shaurya-saini-9b016228a/</a>
+                </div>
+                <div class="contact-modal-item">
+                    <span>GitHub:</span>
+                    <a href="https://github.com/Shaurya-Saini" target="_blank">github.com/Shaurya-Saini</a>
+                </div>
+                <div class="contact-modal-item">
+                    <span>Medium:</span>
+                    <a href="https://medium.com/@shauryathemaster01" target="_blank">medium.com/@shauryathemaster01</a>
+                </div>
+                <!-- Optional: Add more social links here -->
             </div>
         </div>
     </div>
 
     <script>
         function returnToMap() {
-            localStorage.setItem('returnFromContact', 'true');
-            // localStorage.setItem('returnPosition', JSON.stringify({
-            //     x: 0,
-            //     y: 20 // Offset for entry 3
-            // }));
+            localStorage.setItem('returnFromProfile', 'true');
             window.location.href = 'index.html';
         }
+        function showTooltip() {
+            document.getElementById('backBtnTooltip').style.display = 'block';
+        }
+        function hideTooltip() {
+            document.getElementById('backBtnTooltip').style.display = 'none';
+        }
+        // Contact Info Modal
+        function showContactModal() {
+            document.getElementById('contactModal').classList.add('active');
+        }
+        function hideContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+        }
+        // Tooltip for contact
+        function showContactTooltip() {
+            document.getElementById('contactBtnTooltip').style.display = 'block';
+        }
+        function hideContactTooltip() {
+            document.getElementById('contactBtnTooltip').style.display = 'none';
+        }
+        // Tooltip for menu
+        function showMenuHoverTip() {
+            document.getElementById('profileMenuHoverTip').style.display = 'block';
+        }
+        function hideMenuHoverTip() {
+            document.getElementById('profileMenuHoverTip').style.display = 'none';
+        }
+        function toggleMenuDropdown(event) {
+            event.stopPropagation();
+            const tooltip = document.getElementById('profileMenuTooltip');
+            const isActive = tooltip.style.display === 'block';
+            tooltip.style.display = isActive ? 'none' : 'block';
+        }
+        // Close modal on background click
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('contactModal');
+            if (modal && modal.classList.contains('active') && e.target === modal) {
+                hideContactModal();
+            }
+        });
+        // Close menu dropdown on click outside
+        window.addEventListener('click', function(e) {
+            const tooltip = document.getElementById('profileMenuTooltip');
+            if (tooltip && tooltip.style.display === 'block' && !tooltip.contains(e.target)) {
+                tooltip.style.display = 'none';
+            }
+        });
     </script>
-</body>
+    </body>
 </html>
