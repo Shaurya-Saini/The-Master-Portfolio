@@ -6,6 +6,13 @@
     <title>Portfolio - Shaurya Saini</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script>
+        if (window.innerWidth <= 768) {
+            if (!window.location.href.includes("-mobile")) {
+            window.location.href = window.location.pathname.replace(".html", "-mobile.html");
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- <div class="navbar">

@@ -13,6 +13,16 @@ const projectsData = [
     },
     {
         "id": 2,
+        "type": "publication",
+        "title": "EDGE AI-ML: Fundamentals, Architectures, and Applications",
+        "subtitle": "Published on Medium on August 2024",
+        "description": "An article on Edge AI-ML exploring real-time, low-latency inference on edge devices, model compression techniques like pruning and quantization, and emerging approaches such as on-device learning and federated learning to enable adaptive, privacy-preserving, decentralized AI for applications ranging from self-driving cars to mobile assistants.",
+        "image": "assets/projects/web2.png",
+        "githubLink": "",
+        "deploymentLink": "https://medium.com/techloop/edge-ai-ml-fundamentals-architectures-and-applications-167ee6aa3de1"
+    },
+    {
+        "id": 3,
         "type": "project",
         "title": "PrivGuard",
         "subtitle": "Digital Privacy App",
@@ -23,7 +33,7 @@ const projectsData = [
         "techStack": ["Flutter", "TensorFlow", "TensorFlow Lite", "LocalStorage", "Encryption"]
     },
     {
-        "id": 3,
+        "id": 4,
         "type": "project",
         "title": "AirMouse",
         "subtitle": "Dual-Mode Wireless Human-Computer Interface",
@@ -34,7 +44,7 @@ const projectsData = [
         "techStack": ["ESP32", "MPU6050", "BLE", "OpenCV", "Flex Sensors", "MediaPipe"]
     },
     {
-        "id": 4,
+        "id": 5,
         "type": "publication",
         "title": "WEB SCRAPING: Extracting Data for AI and Beyond",
         "subtitle": "Published on Medium on March 2024",

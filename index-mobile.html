@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mobile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index-mobile.css">
+    <script>
+        if (window.innerWidth >768) {
+            if (window.location.href.includes("-mobile")) {
+            window.location.href = window.location.pathname.replace("-mobile.html", ".html");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="glass-overlay profile-section">
+            <div class="start-section">
+                <div class="head-titles">
+                <h1 class="name">SHAURYA SAINI</h1>
+            <p class="title">AI-ML Engineer</p>
+            </div>
+            <img src="assets/photo.png" alt="Profile Photo" class="avatar">
+            
+            </div>
+            <div class="warning">
+                ⚠️  DESKTOP VERSION RECOMMENDED FOR FULL EXPERIENCE
+            </div>
+            <br>
+            <br>
+            <h2 class="section-title">My Skills</h2>
+            <br>
+            <div class = "skills-section">
+                <h2 class="section-subtitle"><span>NLP and AI</span></h2>
+                <ul class="section-list">
+                  <li>Transformers</li>
+                  <li>LangChain</li>
+                  <li>OpenAI SDK</li>
+                </ul>
+                <h2 class="section-subtitle"><span>Machine Learning</span></h2>
+                <ul class="section-list">
+                  <li>Tensorflow</li>
+                  <li>Tensorflow Lite and Tensorflow.js</li>
+                  <li>OpenCV</li>
+                  <li>Yolo</li>
+                </ul>
+                <h2 class="section-subtitle"><span>Data Science</span></h2>
+                <ul class="section-list">
+                  <li>SKlearn</li>
+                  <li>Pandas</li>
+                  <li>Numpy</li>
+                  <li>Matplotlib</li>
+                  <li>Seaborn</li>
+                </ul>
+                <h2 class="section-subtitle"><span>Databases</span></h2>
+                <ul class="section-list">
+                  <li>SQLite</li>
+                  <li>PostgreSQL</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- My Work Section -->
+        <div class="work-section">
+  <h2 class="section-title">My Work</h2>
+  <div class="projects-grid" id="projectsGrid">
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <!-- <span class="project-icon">🤖</span> -->
+          <div class="project-title">Email Highlighter</div>
+          <div class="project-short">ML Powered Chrome Extension</div>
+        </div>
+        <span class="expand-indicator">▶</span>
+      </div>
+      <div class="project-details">
+        <!-- <div class="project-short">An AI-powered assistant for customer support.</div> -->
+        <div class="project-stack"><strong>Tech stack:</strong> Tensorflow, TensorflowJS, JavaScript, Chrome Extension, HTML, CSS</div>
+        <div class="project-desc">Built a chrome extension to extract all mails in collage account and classify and highlight them using TensorFlowJS and an text classifier trained on self labeled dataset extracted using . Achieved over 88% accuracy on new data on the collage email.</div>
+        <div class="project-links">
+          <!-- <a href="#" class="btn">Live Demo</a> -->
+          <a href="https://github.com/Shaurya-Saini/Email_Highlighter" target="_blank" class="btn">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <!-- <span class="project-icon">📊</span> -->
+          <div class="project-title">EDGE AI-ML: Fundamentals, Architectures, and Applications</div>
+          <div class="project-short">Article published on Medium on August 2024.</div>
+        </div>
+        <span class="expand-indicator">▶</span>
+      </div>
+      <div class="project-details">
+        <!-- <div class="project-stack"><strong>Tech stack:</strong> ESP32, MPU6050, BLE, OpenCV, Flex Sensors, MediaPipe</div> -->
+        <div class="project-desc">An article on Edge AI-ML exploring real-time, low-latency inference on edge devices, model compression techniques like pruning and quantization, and emerging approaches such as on-device learning and federated learning to enable adaptive, privacy-preserving, decentralized AI for applications ranging from self-driving cars to mobile assistants.</div>
+        <div class="project-links">
+          <!-- <a href="#" class="btn">Live Demo</a> -->
+          <a href="https://medium.com/techloop/edge-ai-ml-fundamentals-architectures-and-applications-167ee6aa3de1" target="_blank" class="btn">Article</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <!-- <span class="project-icon">📱</span> -->
+          <div class="project-title">PrivGuard</div>
+          <div class="project-short">Digital Privacy App</div>
+        </div>
+        <span class="expand-indicator">▶</span>
+      </div>
+      <div class="project-details">
+        <div class="project-stack"><strong>Tech stack:</strong> Flutter, TensorFlow, TensorFlow Lite, LocalStorage, Encryption</div>
+        <div class="project-desc">Build a flutter application that is designed to help users analyze and protect their digitalprivacy using a locally stored TensorFlow lite named entity recognition model for scanning text based posts and also has encrypted local storage for securely store all media types. Now hosted as an open source project on IEEE-VIT’s GitHub page.</div>
+        <div class="project-links">
+          <!-- <a href="#" class="btn">App Store</a> -->
+          <a href="https://github.com/IEEE-VIT/priv-guard" target="_blank" class="btn">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <!-- <span class="project-icon">📊</span> -->
+          <div class="project-title">AirMouse</div>
+          <div class="project-short">Dual-Mode Wireless Human-Computer Interface.</div>
+        </div>
+        <span class="expand-indicator">▶</span>
+      </div>
+      <div class="project-details">
+        <div class="project-stack"><strong>Tech stack:</strong> ESP32, MPU6050, BLE, OpenCV, Flex Sensors, MediaPipe</div>
+        <div class="project-desc">The Air Mouse is a wireless, dual-mode input device that enables cursor control, left/right clicks, scrolling, zooming, volume control, and tab/application switching through motion tracking and hand gesture recognition. It combines embedded sensor data and real-time computer vision for seamless human-computer interaction.</div>
+        <div class="project-links">
+          <!-- <a href="#" class="btn">Live Demo</a> -->
+          <a href="https://github.com/Shaurya-Saini/AirMouse" target="_blank" class="btn">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <!-- <span class="project-icon">📊</span> -->
+          <div class="project-title">WEB SCRAPING: Extracting Data for AI and Beyond</div>
+          <div class="project-short">Article published on Medium on March 2024.</div>
+        </div>
+        <span class="expand-indicator">▶</span>
+      </div>
+      <div class="project-details">
+        <!-- <div class="project-stack"><strong>Tech stack:</strong> ESP32, MPU6050, BLE, OpenCV, Flex Sensors, MediaPipe</div> -->
+        <div class="project-desc">An article on web scraping in Python covering essential libraries like BeautifulSoup, Requests, and Selenium, along with data extraction techniques, advanced tools such as headers, sessions, and proxies, best practices, and ethical considerations. Published under Techloop, the official publication of IEEE VIT.</div>
+        <div class="project-links">
+          <!-- <a href="#" class="btn">Live Demo</a> -->
+          <a href="https://medium.com/techloop/web-scraping-extracting-data-for-ai-and-beyond-without-getting-arrested-497058f9aa1f" target="_blank" class="btn">Article</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+            <br>
+        <!-- Experience Section -->
+         <h2 class="section-title">Experience</h2>
+        <div class="glass-overlay exp-section">
+            <div class = "exp-cover">
+            <div class="experience-item">
+                <div class="experience-role">AI ENGINEERING INTERN @PRIORISE</div>
+                <div class="experience-dates">June 2025 - July 2025</div>
+                <div class="experience-description">
+                    I built GPT-4o-powered systems for persona-based analysis of structured sales and advertising data. My main focus was developing a multi-agent LLM backend that processed reports from platforms like Amazon and delivered real-time, context-aware insights using PostgreSQL and OpenAI models. This role deepened my practical skills in LLM integration, data handling, MCP servers, and prompt engineering.
+                </div>
+            </div>
+            </div>
+            
+            <div class = "exp-cover">
+            <div class="experience-item">
+                <div class="experience-role">SENIOR CORE MEMBER @IEEE-VIT</div>
+                <div class="experience-dates">Jan 2025 - Present</div>
+                <div class="experience-description">
+                    IEEE-VIT is one of the most active IEEE chapters in Region 10, focused on "Advancing Humanity through Technology." As a senior core member, I contributed to both the technical and management domains, gaining hands-on experience through events, hackathons, and project-based learning. The chapter provided a strong platform to grow as both an engineer and a leader.
+                </div>
+            </div>
+            </div>
+            <div class = "exp-cover">
+            <div class="experience-item">
+                <div class="experience-role">SOFTWARE DEVELOPER @INDIAN ARMY AVAITION CORPS (Volunteer Contribution)</div>
+                <!-- <div class="experience-dates">2019 - 2020</div> -->
+                <div class="experience-description">
+                    Worked directly with officers and technicians from the Indian Army Aviation Corps to understand on-ground challenges in helicopter rotor balancing. Built a specialized tool tailored to their needs, helping reduce workload, error, and time in a mission-critical maintenance task.
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+                    <br>
+        <!-- Contact Section -->
+         <h2 class="section-title">My Socials</h2>
+         <div class="glass-overlay exp-section">
+            <a href="mailto:shauryathemaster01@gmail.com" style="background-color: #e6ec26;">E-MAIL</a>
+<a href="https://github.com/Shaurya-Saini" target="_blank" style="background-color: #009688;">GitHub</a>
+<a href="https://medium.com/@shauryathemaster01" target="_blank" style="background-color: #ae5adb;">Medium</a>
+<a href="https://linkedin.com/in/shaurya-saini-9b016228a/" target="_blank" style="background-color: #d83434;">LinkedIn</a>
+         </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const projectCards = document.querySelectorAll('.project-card');
+  projectCards.forEach(card => {
+    card.addEventListener('click', function() {
+      // Close other expanded cards
+      projectCards.forEach(otherCard => {
+        if (otherCard !== this && otherCard.classList.contains('expanded')) {
+          otherCard.classList.remove('expanded');
+        }
+      });
+      // Toggle current card
+      this.classList.toggle('expanded');
+    });
+  });
+});
+    </script>
+</body>
+</html>
