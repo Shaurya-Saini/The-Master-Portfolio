@@ -7,12 +7,31 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script>
-        if (window.innerWidth <= 768) {
-            if (!window.location.href.includes("-mobile")) {
-            window.location.href = window.location.pathname.replace(".html", "-mobile.html");
-            }
-        }
-    </script>
+(function() {
+  // Prevent redirect loop within same session
+  if (sessionStorage.getItem("mobile-redirect-done")) return;
+
+  // Detect if user is on mobile width
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  // Current path
+  const path = window.location.pathname;
+
+  const onMobilePage = path.endsWith("index-mobile.html");
+  const onDesktopPage = path.endsWith("index.html") || path === "/" || path === "";
+
+  if (isMobile && !onMobilePage) {
+    sessionStorage.setItem("mobile-redirect-done", "true");
+    window.location.replace(path.replace("index.html", "index-mobile.html") || "index-mobile.html");
+  }
+
+  if (!isMobile && onMobilePage) {
+    sessionStorage.setItem("mobile-redirect-done", "true");
+    window.location.replace(path.replace("index-mobile.html", "index.html") || "index.html");
+  }
+})();
+</script>
+
 </head>
 <body>
     <!-- <div class="navbar">
