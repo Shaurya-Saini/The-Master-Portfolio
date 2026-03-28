@@ -3,6 +3,39 @@ const projectsData = [
     {
         "id": 1,
         "type": "project",
+        "title": "EpiSense",
+        "subtitle": "An IoT-AI Unified Outbreak Surveillance Platform",
+        "description": "EpiSense is an advanced epidemiological surveillance system that bridges the gap between autonomous environmental sensing and human clinical symptom reporting. By fusing real-time water quality metrics (IoT) with time-decayed clinical data (Syndromic Surveillance) into a single geospatial Outbreak Risk Index (ORI).",
+        "image": "assets/projects/episense.png",
+        "githubLink": "https://github.com/Shaurya-Saini/EpiSense",
+        // "deploymentLink": "https://github.com/Shaurya-Saini/BlueComm/releases/tag/v2.0",
+        "techStack": ["Machine Learning", "IoT", "Embedded Systems","React", "FastAPI", "SQLite" ]
+    },
+    {
+        "id":2,
+        "type": "project",
+        "title": "CLAIRVOYANCE",
+        "subtitle": "Eye Gaze Tracking System",
+        "description": "Clairvoyance is a real-time eye gaze prediction system that tries to accurately identifies which of 9 predefined gaze positions on a 3×3 grid on the system monitor the user is looking at.",
+        "image": "assets/projects/CLAIRVOYANCE.png",
+        "githubLink": "https://github.com/Shaurya-Saini/Clairvoyance",
+        // "deploymentLink": "https://github.com/Shaurya-Saini/BlueComm/releases/tag/v2.0",
+        "techStack": ["Tensorflow", "Computer Vision", "Transfer Learning", "MobileNetV2"]
+    },
+    {
+        "id": 3,
+        "type": "project",
+        "title": "BlueComm",
+        "subtitle": "Bluetooth Classic Based Android Messaging System",
+        "description": "BlueComm is a standalone Android messaging application developed using Flutter. It enables two Android devices to seamlessly discover each other over Bluetooth Classic, establish a robust RFCOMM connection, and exchange messages in real-time.",
+        "image": "assets/projects/bluecomm.png",
+        "githubLink": "https://github.com/Shaurya-Saini/BlueComm",
+        "deploymentLink": "https://github.com/Shaurya-Saini/BlueComm/releases/tag/v2.0",
+        "techStack": ["Flutter", "Bluetooth Classic", "Android", "Dart", "RFCOMM"]
+    },
+    {
+        "id": 4,
+        "type": "project",
         "title": "Email Highlighter",
         "subtitle": "ML Powered Chrome Extension",
         "description": "Built a chrome extension to extract all mails in collage account and classify and highlight them using TensorFlowJS and an text classifier trained on self labeled dataset extracted using . Achieved over 88% accuracy on new data on the collage email.",
@@ -12,7 +45,7 @@ const projectsData = [
         "techStack": ["Tensorflow", "TensorflowJS", "JavaScript", "Chrome Extension", "HTML", "CSS"]
     },
     {
-        "id": 2,
+        "id": 5,
         "type": "publication",
         "title": "EDGE AI-ML: Fundamentals, Architectures, and Applications",
         "subtitle": "Published on Medium on August 2024",
@@ -22,7 +55,7 @@ const projectsData = [
         "deploymentLink": "https://medium.com/techloop/edge-ai-ml-fundamentals-architectures-and-applications-167ee6aa3de1"
     },
     {
-        "id": 3,
+        "id": 6,
         "type": "project",
         "title": "PrivGuard",
         "subtitle": "Digital Privacy App",
@@ -33,7 +66,18 @@ const projectsData = [
         "techStack": ["Flutter", "TensorFlow", "TensorFlow Lite", "LocalStorage", "Encryption"]
     },
     {
-        "id": 4,
+        "id": 7,
+        "type": "project",
+        "title": "CheckMate Macine",
+        "subtitle": "IEEE-VIT's Chess Playground",
+        "description": "CheckMate Machine is a compact toolkit created by IEEE-VIT that combines, A lightweight search-based chess engine, A demo 2D web UI for playing against the engine, A lightweight FastAPI backend that exposes the engine as an HTTP service, and Vision & preprocessing helpers to take and convert board screenshots into FEN strings.",
+        "image": "assets/projects/priv.png",
+        "githubLink": "https://github.com/IEEE-VIT/checkmate-machine",
+        "deploymentLink": "https://checkmate-machine.pages.dev/",
+        "techStack": ["Computer Vision", "Chess Engine", "FastAPI", "AI Algorithms", "Web Development"]
+    },
+    {
+        "id": 8,
         "type": "project",
         "title": "AirMouse",
         "subtitle": "Dual-Mode Wireless Human-Computer Interface",
@@ -44,7 +88,7 @@ const projectsData = [
         "techStack": ["ESP32", "MPU6050", "BLE", "OpenCV", "Flex Sensors", "MediaPipe"]
     },
     {
-        "id": 5,
+        "id": 9,
         "type": "publication",
         "title": "WEB SCRAPING: Extracting Data for AI and Beyond",
         "subtitle": "Published on Medium on March 2024",
@@ -54,7 +98,7 @@ const projectsData = [
         "deploymentLink": "https://medium.com/techloop/web-scraping-extracting-data-for-ai-and-beyond-without-getting-arrested-497058f9aa1f"
     },
     {
-        "id": 6,
+        "id": 10,
         "type": "project",
         "title": "Indian IT Companies: Revenue and Stock Price Analysis",
         "subtitle": "Data Analysis and Visualization",
